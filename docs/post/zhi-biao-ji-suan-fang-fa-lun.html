@@ -129,8 +129,7 @@ DTW 是一种用于测量两个时间序列相似度的算法。它允许对时�
 <li>计算复杂度较高，适用于小规模数据集。</li>
 <li>对噪声敏感。</li>
 </ul>
-<p>`python<br>
-import numpy as np</p>
+<p>`import numpy as np</p>
 <p>def dtw_distance(ts1, ts2):<br>
 n, m = len(ts1), len(ts2)<br>
 dtw_matrix = np.zeros((n+1, m+1))</p>
@@ -170,8 +169,7 @@ EDR 是一种用于计算两个轨迹之间最小编辑操作数量的算法，�
 <ul>
 <li>需要设定阈值，阈值的选择可能影响结果。</li>
 </ul>
-<p>`<br>
-def edr_distance(ts1, ts2, epsilon):<br>
+<p>`def edr_distance(ts1, ts2, epsilon):<br>
 n, m = len(ts1), len(ts2)<br>
 edr_matrix = np.zeros((n+1, m+1))</p>
 <pre class="notranslate"><code class="notranslate">for i in range(1, n+1):
@@ -234,8 +232,7 @@ print("EDR Distance:", edr_distance(trajectory1, trajectory2, epsilon))`</p>
 </ol>
 <p>示例代码<br>
 以下是一个简单的基于DTW距离和DBSCAN算法的轨迹聚类示例代码：</p>
-<p>`<br>
-import numpy as np<br>
+<p>`import numpy as np<br>
 from sklearn.cluster import DBSCAN<br>
 from fastdtw import fastdtw<br>
 from scipy.spatial.distance import euclidean</p>
@@ -270,8 +267,7 @@ labels = dbscan.fit_predict(distance_matrix)</p>
 <li>根据具体应用需求和数据特点，选择适当的特征提取方法和距离度量方式。</li>
 <li>使用合适的聚类算法，如DBSCAN适合处理噪音数据，K-means适合已知聚类数量的情况。</li>
 <li>对聚类结果进行评估和验证，以确保聚类的有效性和准确性。</li>
-</ul>
-<p><code class="notranslate">import numpy as np from sklearn.cluster import DBSCAN from fastdtw import fastdtw</code></p></div>
+</ul></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
