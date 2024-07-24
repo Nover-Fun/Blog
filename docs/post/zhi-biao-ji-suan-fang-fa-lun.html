@@ -146,7 +146,6 @@ for i in range(1, n+1):
 
 return dtw_matrix[n, m]
 </code></pre>
-<h1>示例数据</h1>
 <p>trajectory1 = np.array([[1, 2], [2, 3], [3, 4]])<br>
 trajectory2 = np.array([[1, 2], [2, 2], [3, 3]])</p>
 <p>print("DTW Distance:", dtw_distance(trajectory1, trajectory2))`</p>
@@ -171,7 +170,7 @@ EDR 是一种用于计算两个轨迹之间最小编辑操作数量的算法，�
 <ul>
 <li>需要设定阈值，阈值的选择可能影响结果。</li>
 </ul>
-<p>`python<br>
+<p>`<br>
 def edr_distance(ts1, ts2, epsilon):<br>
 n, m = len(ts1), len(ts2)<br>
 edr_matrix = np.zeros((n+1, m+1))</p>
@@ -192,7 +191,6 @@ for i in range(1, n+1):
 
 return edr_matrix[n, m]
 </code></pre>
-<h1>示例数据</h1>
 <p>epsilon = 1.0<br>
 print("EDR Distance:", edr_distance(trajectory1, trajectory2, epsilon))`</p>
 <p>总结</p>
@@ -236,12 +234,11 @@ print("EDR Distance:", edr_distance(trajectory1, trajectory2, epsilon))`</p>
 </ol>
 <p>示例代码<br>
 以下是一个简单的基于DTW距离和DBSCAN算法的轨迹聚类示例代码：</p>
-<p>`python<br>
+<p>`<br>
 import numpy as np<br>
 from sklearn.cluster import DBSCAN<br>
 from fastdtw import fastdtw<br>
 from scipy.spatial.distance import euclidean</p>
-<h1>计算轨迹之间的DTW距离矩阵</h1>
 <p>def compute_dtw_distance_matrix(trajectories):<br>
 n = len(trajectories)<br>
 distance_matrix = np.zeros((n, n))<br>
@@ -251,17 +248,13 @@ distance, _ = fastdtw(trajectories[i], trajectories[j], dist=euclidean)<br>
 distance_matrix[i, j] = distance<br>
 distance_matrix[j, i] = distance<br>
 return distance_matrix</p>
-<h1>示例轨迹数据，每条轨迹包含一系列[经度, 纬度, 时间, 时速]点</h1>
 <p>trajectories = [<br>
 np.array([[116.3, 39.9, 0, 50], [116.4, 39.8, 1, 60], [116.5, 39.7, 2, 55]]),<br>
 np.array([[116.3, 39.9, 0, 52], [116.4, 39.8, 1, 58], [116.5, 39.7, 2, 53]]),<br>
 np.array([[116.7, 40.0, 0, 40], [116.8, 40.1, 1, 45], [116.9, 40.2, 2, 50]])<br>
 ]</p>
-<h1>只使用经纬度进行DTW距离计算</h1>
 <p>trajectories_coords = [traj[:, :2] for traj in trajectories]</p>
-<h1>计算距离矩阵</h1>
 <p>distance_matrix = compute_dtw_distance_matrix(trajectories_coords)</p>
-<h1>使用DBSCAN进行聚类</h1>
 <p>dbscan = DBSCAN(metric='precomputed', eps=10, min_samples=2)<br>
 labels = dbscan.fit_predict(distance_matrix)</p>
 <p>print("聚类结果:", labels)`</p>
