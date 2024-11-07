@@ -1,4 +1,4 @@
-# Nover :link: https://NoverGit.github.io/Blog 
+# Nover :link: https://NoverGit.github.io/blog 
 ### :page_facing_up: [3](https://NoverGit.github.io/blog/tag.html) 
 ### :speech_balloon: 0 
 ### :hibiscus: 6652 
